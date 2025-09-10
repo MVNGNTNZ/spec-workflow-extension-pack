@@ -181,8 +181,10 @@
       "spec-requirements-validator": "patches/requirements-validator-patch.js",
       "spec-design-validator": "patches/design-validator-patch.js",
       "spec-task-validator": "patches/task-validator-patch.js",
-      "spec-test-validator": "patches/test-validator-patch.js",
       "spec-task-executor": "patches/task-executor-git-patch.js"
+    },
+    "agentInstalls": {
+      "spec-test-validator": "agents/spec-test-validator.md"
     },
     "patternLibraries": {
       "universal": "patterns/universal-patterns.json",

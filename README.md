@@ -119,13 +119,17 @@ Uses Five Whys root cause analysis:
 
 ## Integration with Spec Workflow
 
-### Agent Patching
-The extension automatically patches these spec workflow agents:
+### Agent Integration
+The extension provides both agent patching and new agent installation:
+
+**Agent Patches** (modifies existing agents):
 - `spec-task-executor`: Git workflow integration
-- `spec-test-validator`: Enhanced test validation with pattern learning
 - `spec-requirements-validator`: Test validation context
 - `spec-design-validator`: Test strategy validation
 - `spec-task-validator`: Test health consideration
+
+**New Agent Installation** (adds new agents):
+- `spec-test-validator`: Enhanced test validation with pattern learning and root cause analysis
 
 ### Workflow Integration
 Works seamlessly with existing spec commands:
