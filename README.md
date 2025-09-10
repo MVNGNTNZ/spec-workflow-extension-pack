@@ -171,14 +171,17 @@ npm run format             # Format code with Prettier
 
 ## Architecture
 
-### Git Workflow Services
-- `git_config_reader.py`: Configuration management
+### Git Workflow Services (Python)
+Located in `services/` directory:
+- `git_config_reader.py`: Configuration management with `get_git_automation_config()` method
 - `git_file_detector.py`: Change analysis and commit type detection
 - `git_message_generator.py`: Intelligent commit message generation
 - `git_auto_commit.py`: Main orchestration service
 - `git_commit_handler.py`: Robust commit operations with retry logic
-- `spec_integration_hook.py`: Integration with spec workflow
+- `spec_integration_hook.py`: Integration with spec workflow (tested and working)
 - `git_task_aggregator.py`: Task completion tracking and phase detection
+- `git_service_init.py`: Service initialization and dependency management
+- `git_user_confirmation.py`: User confirmation workflows
 
 ### Test Validation Components
 - `pattern-validator.js`: Pattern library validation
