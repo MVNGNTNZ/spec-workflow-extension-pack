@@ -1,0 +1,196 @@
+{
+  "name": "@MVNGNTNZ/spec-workflow-extension-pack",
+  "version": "1.0.0",
+  "description": "Comprehensive extension pack for spec-driven development workflows with Git automation and test validation enhancements",
+  "keywords": [
+    "spec-workflow",
+    "git-workflow",
+    "test-validation",
+    "pattern-recognition",
+    "code-quality",
+    "development-workflow",
+    "automated-testing",
+    "institutional-knowledge",
+    "spec-driven-development",
+    "git-automation"
+  ],
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": {
+    "name": "MVNGNTNZ",
+    "url": "https://github.com/MVNGNTNZ"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MVNGNTNZ/spec-workflow-extension-pack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MVNGNTNZ/spec-workflow-extension-pack/issues"
+  },
+  "homepage": "https://github.com/MVNGNTNZ/spec-workflow-extension-pack#readme",
+  "files": [
+    "index.js",
+    "src/",
+    "templates/",
+    "patches/",
+    "dashboard/",
+    "database/",
+    "config/",
+    "docs/",
+    "README.md"
+  ],
+  "dependencies": {
+    "axios": "^1.6.0",
+    "bcrypt": "^5.1.1",
+    "chalk": "^5.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "fs-extra": "^11.2.0",
+    "helmet": "^7.1.0",
+    "joi": "^17.11.0",
+    "js-yaml": "^4.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "pg": "^8.11.3",
+    "redis": "^4.6.10",
+    "semver": "^7.6.0",
+    "winston": "^3.11.0",
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.8",
+    "eslint": "^8.54.0",
+    "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.1.0",
+    "nodemon": "^3.0.2",
+    "prettier": "^3.1.0",
+    "supertest": "^6.3.3"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "install-extension": "node src/installer.js",
+    "validate-setup": "node src/validator.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:all": "node scripts/test-all.js",
+    "lint": "eslint src/ tests/ --ext .js,.jsx",
+    "lint:fix": "eslint src/ tests/ --ext .js,.jsx --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,json,md}\" \"tests/**/*.{js,jsx,json,md}\" \"docs/**/*.md\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,json,md}\" \"tests/**/*.{js,jsx,json,md}\" \"docs/**/*.md\"",
+    "build": "node scripts/build.js",
+    "build:dist": "node scripts/build.js && node scripts/package.js",
+    "package": "node scripts/package.js",
+    "package:npm": "node scripts/package.js --type npm",
+    "package:standalone": "node scripts/package.js --type standalone",
+    "package:docs": "node scripts/package.js --type docs",
+    "version:patch": "node scripts/version.js patch",
+    "version:minor": "node scripts/version.js minor",
+    "version:major": "node scripts/version.js major",
+    "version:info": "node scripts/version.js info",
+    "publish:dry": "node scripts/publish.js --dry-run",
+    "publish:beta": "node scripts/publish.js --tag beta",
+    "release": "node scripts/release.js",
+    "release:patch": "node scripts/release.js patch",
+    "release:minor": "node scripts/release.js minor",
+    "release:major": "node scripts/release.js major",
+    "release:dry": "node scripts/release.js patch --dry-run",
+    "release:interactive": "node scripts/release.js --interactive",
+    "pre-publish": "node scripts/pre-publish.js",
+    "dashboard:dev": "cd dashboard/server && node index.js",
+    "dashboard:client": "cd dashboard/client && npm run dev",
+    "dashboard:build": "cd dashboard/client && npm run build",
+    "db:init": "node src/database.js --init",
+    "db:migrate": "node src/database.js --migrate",
+    "db:seed": "node src/database.js --seed",
+    "pattern:sync": "node src/pattern-sync.js",
+    "pattern:validate": "node src/pattern-validator.js",
+    "agent:patch": "node src/agent-patcher.js --apply",
+    "agent:rollback": "node src/agent-patcher.js --rollback",
+    "git:install": "node src/installer.js --git-workflow",
+    "git:configure": "node src/installer.js --configure-git",
+    "test-validation:install": "node src/installer.js --test-validation",
+    "install:all": "node src/installer.js --all",
+    "install:interactive": "node src/installer.js --interactive",
+    "docs:serve": "cd docs && python -m http.server 8080",
+    "preinstall": "node src/pre-install-check.js",
+    "postinstall": "node src/post-install-setup.js",
+    "prepublishOnly": "node scripts/pre-publish.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "bin": {
+    "claude-test-validation": "./index.js",
+    "ctv": "./index.js"
+  },
+  "config": {
+    "compatibilityMode": "auto",
+    "autoInstallDependencies": true,
+    "enableDashboard": true,
+    "enableDatabase": false,
+    "patternLibraryPath": ".claude/pattern-library.json",
+    "agentPatchLevel": "enhanced",
+    "validationTimeout": 30000,
+    "maxPatternCount": 10000,
+    "crossRepoSync": false,
+    "debugMode": false
+  },
+  "claude-code": {
+    "extensionType": "workflow-enhancement",
+    "extensionModules": ["git-workflow", "test-validation"],
+    "compatibleVersions": [
+      ">=1.0.0"
+    ],
+    "requiredFeatures": [
+      "spec-validation",
+      "pattern-recognition",
+      "agent-enhancement",
+      "git-integration"
+    ],
+    "optionalFeatures": [
+      "dashboard-ui",
+      "database-integration",
+      "cross-repo-sync",
+      "intelligent-commit-messages",
+      "commit-aggregation"
+    ],
+    "installationHooks": {
+      "preInstall": "src/pre-install-check.js",
+      "postInstall": "src/post-install-setup.js",
+      "preUninstall": "src/cleanup.js"
+    },
+    "configurationSchema": "config/extension-config.schema.json",
+    "agentPatches": {
+      "spec-requirements-validator": "patches/requirements-validator-patch.js",
+      "spec-design-validator": "patches/design-validator-patch.js",
+      "spec-task-validator": "patches/task-validator-patch.js",
+      "spec-test-validator": "patches/test-validator-patch.js",
+      "spec-task-executor": "patches/task-executor-git-patch.js"
+    },
+    "patternLibraries": {
+      "universal": "patterns/universal-patterns.json",
+      "frontend": "patterns/frontend-patterns.json",
+      "backend": "patterns/backend-patterns.json"
+    }
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/MVNGNTNZ"
+  }
+}
